@@ -1,0 +1,50 @@
+/* src/components/Dashboard.css */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container {
+    display: flex;
+    margin-top: 60px; /* Height of the navbar */
+}
+
+.main-content {
+    margin-left: 220px; /* Width of the sidebar */
+    padding: 20px;
+    flex: 1;
+    min-height: calc(100vh - 60px); /* Adjust according to navbar height */
+    background-color: #f4f7fa;
+    overflow-y: auto;
+}
+
+.main-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.widget {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.widget h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #495057;
+}
+
+.widget p {
+    color: #6c757d;
+}

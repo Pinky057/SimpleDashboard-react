@@ -1,0 +1,12 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-top: 60px; /* Adjust for header */
+    overflow-y: auto;
+    background-color: #f4f7fa;
+}
