@@ -1,118 +1,132 @@
-// src/components/Sidebar.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaCubes, FaCalendar, FaChartPie, FaTable, FaMapMarkedAlt, FaStar, FaFolder, FaBell, FaPuzzlePiece, FaFont, FaPalette,FaTachometerAlt } from 'react-icons/fa';
+import { FaCubes, FaCalendar, FaChartPie, FaTable, FaMapMarkedAlt, FaStar, FaFolder, FaBell, FaPuzzlePiece, FaFont, FaPalette, FaTachometerAlt, FaTimes, FaBars } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import './Sidebar.css';
 
 const Sidebar = () => {
+    const [isOpen, setIsOpen] = useState(true);
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <aside className="sidebar">
+        <motion.aside
+            className={`sidebar ${isOpen ? 'open' : 'collapsed'}`}
+            initial={{ width: isOpen ? 220 : 60 }}
+            animate={{ width: isOpen ? 220 : 60 }}
+            transition={{ duration: 0.3 }}
+        >
+            <button className="toggle-btn" onClick={toggleSidebar}>
+                {isOpen ? <FaTimes /> : <FaBars />}
+            </button>
             <ul className="sidebar-menu">
-                <li>
+                <li className="sidebar-item">
                     <Link to="/dashboard">
-                        <FaTachometerAlt className="menu-icon"/>
-                        Dashboard
+                        <FaTachometerAlt className="menu-icon" />
+                        {isOpen && <span>Dashboard</span>}
                     </Link>
                 </li>
-                <li className="sidebar-section">THEME</li>
-                <li>
+                <li className="sidebar-section">{isOpen && 'THEME'}</li>
+                <li className="sidebar-item">
                     <Link to="/color">
-                        <FaPalette className="menu-icon"/>
-                        Color
+                        <FaPalette className="menu-icon" />
+                        {isOpen && <span>Color</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/typography">
-                        <FaFont className="menu-icon"/>
-                        Typography
+                        <FaFont className="menu-icon" />
+                        {isOpen && <span>Typography</span>}
                     </Link>
                 </li>
 
-                <li className="sidebar-section">COMPONENTS</li>
-                <li>
+                <li className="sidebar-section">{isOpen && 'COMPONENTS'}</li>
+                <li className="sidebar-item">
                     <Link to="/base">
-                        <FaPuzzlePiece className="menu-icon"/>
-                        Base
+                        <FaPuzzlePiece className="menu-icon" />
+                        {isOpen && <span>Base</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/buttons">
-                        <FaFolder className="menu-icon"/>
-                        Buttons
+                        <FaFolder className="menu-icon" />
+                        {isOpen && <span>Buttons</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/forms">
-                        <FaTable className="menu-icon"/>
-                        Forms
+                        <FaTable className="menu-icon" />
+                        {isOpen && <span>Forms</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/icons">
-                        <FaStar className="menu-icon"/>
-                        Icons
+                        <FaStar className="menu-icon" />
+                        {isOpen && <span>Icons</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/notifications">
-                        <FaBell className="menu-icon"/>
-                        Notifications
+                        <FaBell className="menu-icon" />
+                        {isOpen && <span>Notifications</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/widgets">
-                        <FaCubes className="menu-icon"/>
-                        Widgets <span className="badge new">NEW</span>
+                        <FaCubes className="menu-icon" />
+                        {isOpen && <span>Widgets <span className="badge new">NEW</span></span>}
                     </Link>
                 </li>
 
-                <li className="sidebar-section">PLUGINS</li>
-                <li>
+                <li className="sidebar-section">{isOpen && 'PLUGINS'}</li>
+                <li className="sidebar-item">
                     <Link to="/calendar">
-                        <FaCalendar className="menu-icon"/>
-                        Calendar <span className="badge pro">PRO</span>
+                        <FaCalendar className="menu-icon" />
+                        {isOpen && <span>Calendar <span className="badge pro">PRO</span></span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/charts">
-                        <FaChartPie className="menu-icon"/>
-                        Charts
+                        <FaChartPie className="menu-icon" />
+                        {isOpen && <span>Charts</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/datatables">
-                        <FaTable className="menu-icon"/>
-                        DataTables <span className="badge pro">PRO</span>
+                        <FaTable className="menu-icon" />
+                        {isOpen && <span>DataTables <span className="badge pro">PRO</span></span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/google-maps">
-                        <FaMapMarkedAlt className="menu-icon"/>
-                        Google Maps <span className="badge pro">PRO</span>
+                        <FaMapMarkedAlt className="menu-icon" />
+                        {isOpen && <span>Google Maps <span className="badge pro">PRO</span></span>}
                     </Link>
                 </li>
 
-                <li className="sidebar-section">EXTRAS</li>
-                <li>
+                <li className="sidebar-section">{isOpen && 'EXTRAS'}</li>
+                <li className="sidebar-item">
                     <Link to="/pages">
-                        <FaStar className="menu-icon"/>
-                        Pages
+                        <FaStar className="menu-icon" />
+                        {isOpen && <span>Pages</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/apps">
-                        <FaCubes className="menu-icon"/>
-                        Apps
+                        <FaCubes className="menu-icon" />
+                        {isOpen && <span>Apps</span>}
                     </Link>
                 </li>
-                <li>
+                <li className="sidebar-item">
                     <Link to="/docs">
-                        <FaFolder className="menu-icon"/>
-                        Docs
+                        <FaFolder className="menu-icon" />
+                        {isOpen && <span>Docs</span>}
                     </Link>
                 </li>
             </ul>
-        </aside>
+        </motion.aside>
     );
 };
 

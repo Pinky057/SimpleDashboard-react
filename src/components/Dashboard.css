@@ -1,5 +1,7 @@
 /* src/components/Dashboard.css */
 .dashboard {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
 }

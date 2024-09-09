@@ -1,16 +1,42 @@
-/* src/components/Sidebar.css */
 .sidebar {
-    width: 220px;
     background-color: #343a40;
     color: #fff;
-    height: 100vh;
+    height: calc(100vh - 60px);
     padding-top: 20px;
     position: fixed;
-    top: 60px; /* Adjust according to navbar height */
+    top: 60px;
     left: 0;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: visible;
+    z-index: 900;
+}
+
+.sidebar.open {
+    width: 220px;
+}
+
+.sidebar.collapsed {
+    width: 100px;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 30px;
+    right: -15px;
+    background-color: #e0f4e8;
+    border: none;
+    border-radius: 50%;
+    color: #3a6d44;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
 }
 
 .sidebar-menu {
@@ -27,29 +53,27 @@
     letter-spacing: 0.5px;
 }
 
-.sidebar-menu li {
+.sidebar-item {
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
     transition: background 0.3s;
 }
 
-.sidebar-menu li:hover {
+.sidebar-item:hover {
     background-color: #495057;
 }
 
-.sidebar-menu a {
+.sidebar-item a {
     text-decoration: none;
     color: #ffffff;
     display: flex;
     align-items: center;
 }
 
-.sidebar-menu .menu-icon {
-    margin-right: 10px;
+.menu-icon {
     font-size: 16px;
-}
-
-.sidebar-menu a:hover {
-    color: #adb5bd;
+    margin-right: 10px;
 }
 
 .badge {
